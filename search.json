@@ -1,10 +1,38 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ColaVsPep",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "objectID": "index.html#outline",
+    "href": "index.html#outline",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "Outline",
+    "text": "Outline\n\nTrack the log price spread between KO and PEP\nCalculate Z-score of the spread\nEnter trades when Z &gt; 2 or Z &lt; -2\nExit when Z-score returns to 0\nStop-loss if Z exceeds ±3 or after 5 days (max holding period)"
+  },
+  {
+    "objectID": "index.html#entry-signal",
+    "href": "index.html#entry-signal",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "Entry Signal",
+    "text": "Entry Signal\n\nCompute the Z-score of the log-price spread between KO and PEP.\nIf Z &gt; 2, short KO and long PEP.\nIf Z &lt; -2, long KO and short PEP."
+  },
+  {
+    "objectID": "index.html#exit-signal",
+    "href": "index.html#exit-signal",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "Exit Signal",
+    "text": "Exit Signal\n\nExit the trade when Z-score crosses back to 0.\nOR exit if a stop loss is triggered at Z &gt; ±3.\nMax hold time: 5 trading days"
+  },
+  {
+    "objectID": "index.html#position-sizing",
+    "href": "index.html#position-sizing",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "Position Sizing",
+    "text": "Position Sizing\n\nDollar neutral: invest equal dollar amounts on both sides."
+  },
+  {
+    "objectID": "index.html#sample-trade",
+    "href": "index.html#sample-trade",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "Sample Trade",
+    "text": "Sample Trade\n\n\n\nDate\nKO Price\nPEP Price\nAction\n\n\n\n\nMar 8, 2025\n$62.00\n$167.00\nShort KO, Long PEP\n\n\nMar 12, 2025\n$60.80\n$168.50\nClose position\n\n\nReturn\n-1.94%\n+0.90%\nNet: +1.2%"
   },
   {
     "objectID": "about.html",

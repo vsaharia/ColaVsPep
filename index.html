@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ColaVsPep</title>
+<title>Pairs Trading - Coca-Cola (KO) &amp; PepsiCo (PEP) – ColaVsPep</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,15 +108,31 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pair-trading-strategy" id="toc-pair-trading-strategy" class="nav-link active" data-scroll-target="#pair-trading-strategy">Pair Trading Strategy</a>
+  <ul class="collapse">
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  </ul></li>
+  <li><a href="#trading-plan" id="toc-trading-plan" class="nav-link" data-scroll-target="#trading-plan">Trading Plan</a>
+  <ul class="collapse">
+  <li><a href="#entry-signal" id="toc-entry-signal" class="nav-link" data-scroll-target="#entry-signal">Entry Signal</a></li>
+  <li><a href="#exit-signal" id="toc-exit-signal" class="nav-link" data-scroll-target="#exit-signal">Exit Signal</a></li>
+  <li><a href="#position-sizing" id="toc-position-sizing" class="nav-link" data-scroll-target="#position-sizing">Position Sizing</a></li>
+  <li><a href="#sample-trade" id="toc-sample-trade" class="nav-link" data-scroll-target="#sample-trade">Sample Trade</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ColaVsPep</h1>
+<h1 class="title">Pairs Trading - Coca-Cola (KO) &amp; PepsiCo (PEP)</h1>
 </div>
 
 
@@ -133,10 +149,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<p><img src="https://deadline.com/wp-content/uploads/2024/02/Pepsi-Coca-Cola.jpg" class="img-fluid"></p>
+<hr>
+<section id="pair-trading-strategy" class="level1">
+<h1>Pair Trading Strategy</h1>
+<p>This is a market-neutral, mean-reversion strategy using Coca-Cola and PepsiCo. I plan to trade based on deviations from historical correlation, entering positions when the Z-score of their log price spread becomes extreme.</p>
+<hr>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<ul>
+<li>Track the <strong>log price spread</strong> between KO and PEP</li>
+<li>Calculate <strong>Z-score</strong> of the spread</li>
+<li>Enter trades when Z &gt; 2 or Z &lt; -2</li>
+<li>Exit when Z-score returns to 0</li>
+<li>Stop-loss if Z exceeds ±3 or after 5 days (max holding period)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="trading-plan" class="level1">
+<h1>Trading Plan</h1>
+<section id="entry-signal" class="level2">
+<h2 class="anchored" data-anchor-id="entry-signal">Entry Signal</h2>
+<ul>
+<li>Compute the <strong>Z-score</strong> of the log-price spread between KO and PEP.</li>
+<li>If <code>Z &gt; 2</code>, short KO and long PEP.</li>
+<li>If <code>Z &lt; -2</code>, long KO and short PEP.</li>
+</ul>
+</section>
+<section id="exit-signal" class="level2">
+<h2 class="anchored" data-anchor-id="exit-signal">Exit Signal</h2>
+<ul>
+<li>Exit the trade when Z-score crosses back to <strong>0</strong>.</li>
+<li>OR exit if a <strong>stop loss</strong> is triggered at <code>Z &gt; ±3</code>.</li>
+<li>Max hold time: <strong>5 trading days</strong></li>
+</ul>
+</section>
+<section id="position-sizing" class="level2">
+<h2 class="anchored" data-anchor-id="position-sizing">Position Sizing</h2>
+<ul>
+<li><strong>Dollar neutral</strong>: invest equal dollar amounts on both sides.</li>
+</ul>
+<hr>
+</section>
+<section id="sample-trade" class="level2">
+<h2 class="anchored" data-anchor-id="sample-trade">Sample Trade</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>KO Price</th>
+<th>PEP Price</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mar 8, 2025</td>
+<td>$62.00</td>
+<td>$167.00</td>
+<td>Short KO, Long PEP</td>
+</tr>
+<tr class="even">
+<td>Mar 12, 2025</td>
+<td>$60.80</td>
+<td>$168.50</td>
+<td>Close position</td>
+</tr>
+<tr class="odd">
+<td>Return</td>
+<td>-1.94%</td>
+<td>+0.90%</td>
+<td>Net: <strong>+1.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
