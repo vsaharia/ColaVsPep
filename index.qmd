@@ -1,7 +1,51 @@
 ---
-title: "ColaVsPep"
+title: "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)"
+format: html
 ---
 
-This is a Quarto website.
+![](https://deadline.com/wp-content/uploads/2024/02/Pepsi-Coca-Cola.jpg)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+---
+
+# Pair Trading Strategy
+
+This is a market-neutral, mean-reversion strategy using Coca-Cola and PepsiCo. I plan to trade based on deviations from historical correlation, entering positions when the Z-score of their log price spread becomes extreme.
+
+---
+
+## Outline
+
+- Track the **log price spread** between KO and PEP
+- Calculate **Z-score** of the spread
+- Enter trades when Z > 2 or Z < -2
+- Exit when Z-score returns to 0
+- Stop-loss if Z exceeds ±3 or after 5 days (max holding period)
+
+---
+
+# Trading Plan
+
+## Entry Signal
+- Compute the **Z-score** of the log-price spread between KO and PEP.
+- If `Z > 2`, short KO and long PEP.
+- If `Z < -2`, long KO and short PEP.
+
+## Exit Signal
+- Exit the trade when Z-score crosses back to **0**.
+- OR exit if a **stop loss** is triggered at `Z > ±3`.
+- Max hold time: **5 trading days**
+
+## Position Sizing
+- **Dollar neutral**: invest equal dollar amounts on both sides.
+
+---
+
+## Sample Trade
+
+| Date       | KO Price | PEP Price | Action        |
+|------------|----------|-----------|----------------|
+| Mar 8, 2025 | $62.00   | $167.00   | Short KO, Long PEP |
+| Mar 12, 2025 | $60.80  | $168.50   | Close position |
+| Return     | -1.94%   | +0.90%    | Net: **+1.2%** |
+
+---
