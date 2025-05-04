@@ -1,38 +1,45 @@
 [
   {
-    "objectID": "index.html#outline",
-    "href": "index.html#outline",
+    "objectID": "index.html#strategy-outline",
+    "href": "index.html#strategy-outline",
     "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
-    "section": "Outline",
-    "text": "Outline\n\nTrack the log price spread between KO and PEP\nCalculate Z-score of the spread\nEnter trades when Z &gt; 2 or Z &lt; -2\nExit when Z-score returns to 0\nStop-loss if Z exceeds ±3 or after 5 days (max holding period)"
+    "section": "📌 Strategy Outline",
+    "text": "📌 Strategy Outline\n\nTrack the log price spread between KO and PEP\nCalculate Z-score of the spread\nEnter when Z &gt; 2 or Z &lt; -2\nExit when Z returns to 0\nStop-loss if Z exceeds ±3 or trade exceeds 5 days"
   },
   {
-    "objectID": "index.html#entry-signal",
-    "href": "index.html#entry-signal",
+    "objectID": "index.html#trading-plan",
+    "href": "index.html#trading-plan",
     "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
-    "section": "Entry Signal",
-    "text": "Entry Signal\n\nCompute the Z-score of the log-price spread between KO and PEP.\nIf Z &gt; 2, short KO and long PEP.\nIf Z &lt; -2, long KO and short PEP."
+    "section": "🧠 Trading Plan",
+    "text": "🧠 Trading Plan\n\nEntry Signal\n\nCompute the Z-score of the log-price spread between KO and PEP.\nIf Z &gt; 2: Short KO, Long PEP\nIf Z &lt; -2: Long KO, Short PEP\n\n\n\nExit Signal\n\nClose when Z-score crosses back to 0\nStop-loss: if Z exceeds ±3\nMax hold time: 5 trading days\n\n\n\nPosition Sizing\n\nDollar neutral: equal amount invested long and short"
   },
   {
-    "objectID": "index.html#exit-signal",
-    "href": "index.html#exit-signal",
+    "objectID": "index.html#sample-trade-walkthrough",
+    "href": "index.html#sample-trade-walkthrough",
     "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
-    "section": "Exit Signal",
-    "text": "Exit Signal\n\nExit the trade when Z-score crosses back to 0.\nOR exit if a stop loss is triggered at Z &gt; ±3.\nMax hold time: 5 trading days"
+    "section": "🧪 Sample Trade Walkthrough",
+    "text": "🧪 Sample Trade Walkthrough\n\n\n\nDate\nKO Price\nPEP Price\nAction\n\n\n\n\nMar 8, 2025\n$62.00\n$167.00\nShort KO, Long PEP\n\n\nMar 12, 2025\n$60.80\n$168.50\nClose position\n\n\nReturn\n-1.94%\n+0.90%\nNet: +1.2%"
   },
   {
-    "objectID": "index.html#position-sizing",
-    "href": "index.html#position-sizing",
+    "objectID": "index.html#blotter-sample",
+    "href": "index.html#blotter-sample",
     "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
-    "section": "Position Sizing",
-    "text": "Position Sizing\n\nDollar neutral: invest equal dollar amounts on both sides."
+    "section": "📁 Blotter Sample",
+    "text": "📁 Blotter Sample\nA blotter is a trade log that records individual trades, quantities, prices, and timestamps.\n\n\n\nTimestamp\nSymbol\nAction\nQuantity\nPrice\n\n\n\n\n2025-03-08\nKO\nSELL\n100\n62.00\n\n\n2025-03-08\nPEP\nBUY\n100\n167.00\n\n\n2025-03-12\nKO\nBUY\n100\n60.80\n\n\n2025-03-12\nPEP\nSELL\n100\n168.50"
   },
   {
-    "objectID": "index.html#sample-trade",
-    "href": "index.html#sample-trade",
+    "objectID": "index.html#ledger-sample",
+    "href": "index.html#ledger-sample",
     "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
-    "section": "Sample Trade",
-    "text": "Sample Trade\n\n\n\nDate\nKO Price\nPEP Price\nAction\n\n\n\n\nMar 8, 2025\n$62.00\n$167.00\nShort KO, Long PEP\n\n\nMar 12, 2025\n$60.80\n$168.50\nClose position\n\n\nReturn\n-1.94%\n+0.90%\nNet: +1.2%"
+    "section": "💼 Ledger Sample",
+    "text": "💼 Ledger Sample\nThe ledger shows position value, cash, and total portfolio value over time.\n\n\n\nDate\nCash\nPosition\nNAV\n\n\n\n\n2025-03-08\n-22900\n0\n-22900\n\n\n2025-03-09\n-22900\n0\n-22900\n\n\n2025-03-12\n23180\n0\n23180"
+  },
+  {
+    "objectID": "index.html#performance-metrics",
+    "href": "index.html#performance-metrics",
+    "title": "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)",
+    "section": "📊 Performance Metrics",
+    "text": "📊 Performance Metrics\n\n\n\nMetric\nValue\n\n\n\n\nAnnualized Return (Geo Mean)\n82.1%\n\n\nAnnualized Volatility\n41.3%\n\n\nSharpe Ratio\n1.56\n\n\nAlpha (vs SPY)\n12.3%\n\n\nBeta (vs SPY)\n-0.24\n\n\nAvg Return per Trade\n+0.91%\n\n\nTrades per Year (Estimated)\n144"
   },
   {
     "objectID": "about.html",

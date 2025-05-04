@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -113,22 +113,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pair-trading-strategy" id="toc-pair-trading-strategy" class="nav-link active" data-scroll-target="#pair-trading-strategy">Pair Trading Strategy</a>
+  <li><a href="#pair-trading-strategy" id="toc-pair-trading-strategy" class="nav-link active" data-scroll-target="#pair-trading-strategy">🥤 Pair Trading Strategy</a>
   <ul class="collapse">
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  </ul></li>
-  <li><a href="#trading-plan" id="toc-trading-plan" class="nav-link" data-scroll-target="#trading-plan">Trading Plan</a>
+  <li><a href="#strategy-outline" id="toc-strategy-outline" class="nav-link" data-scroll-target="#strategy-outline">📌 Strategy Outline</a></li>
+  <li><a href="#trading-plan" id="toc-trading-plan" class="nav-link" data-scroll-target="#trading-plan">🧠 Trading Plan</a>
   <ul class="collapse">
   <li><a href="#entry-signal" id="toc-entry-signal" class="nav-link" data-scroll-target="#entry-signal">Entry Signal</a></li>
   <li><a href="#exit-signal" id="toc-exit-signal" class="nav-link" data-scroll-target="#exit-signal">Exit Signal</a></li>
   <li><a href="#position-sizing" id="toc-position-sizing" class="nav-link" data-scroll-target="#position-sizing">Position Sizing</a></li>
-  <li><a href="#sample-trade" id="toc-sample-trade" class="nav-link" data-scroll-target="#sample-trade">Sample Trade</a></li>
   </ul></li>
+  <li><a href="#sample-trade-walkthrough" id="toc-sample-trade-walkthrough" class="nav-link" data-scroll-target="#sample-trade-walkthrough">🧪 Sample Trade Walkthrough</a></li>
+  <li><a href="#blotter-sample" id="toc-blotter-sample" class="nav-link" data-scroll-target="#blotter-sample">📁 Blotter Sample</a></li>
+  <li><a href="#ledger-sample" id="toc-ledger-sample" class="nav-link" data-scroll-target="#ledger-sample">💼 Ledger Sample</a></li>
+  <li><a href="#performance-metrics" id="toc-performance-metrics" class="nav-link" data-scroll-target="#performance-metrics">📊 Performance Metrics</a></li>
+  </ul></li>
+  <li><a href="#interactive-nav-chart" id="toc-interactive-nav-chart" class="nav-link" data-scroll-target="#interactive-nav-chart">📈 Interactive NAV Chart</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -137,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -152,48 +156,48 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="https://deadline.com/wp-content/uploads/2024/02/Pepsi-Coca-Cola.jpg" class="img-fluid"></p>
 <hr>
 <section id="pair-trading-strategy" class="level1">
-<h1>Pair Trading Strategy</h1>
-<p>This is a market-neutral, mean-reversion strategy using Coca-Cola and PepsiCo. I plan to trade based on deviations from historical correlation, entering positions when the Z-score of their log price spread becomes extreme.</p>
+<h1>🥤 Pair Trading Strategy</h1>
+<p>This is a <strong>market-neutral, mean-reversion strategy</strong> using Coca-Cola and PepsiCo. We enter positions when the Z-score of their log-price spread deviates significantly from the mean, betting on a return to equilibrium.</p>
 <hr>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<section id="strategy-outline" class="level2">
+<h2 class="anchored" data-anchor-id="strategy-outline">📌 Strategy Outline</h2>
 <ul>
 <li>Track the <strong>log price spread</strong> between KO and PEP</li>
 <li>Calculate <strong>Z-score</strong> of the spread</li>
-<li>Enter trades when Z &gt; 2 or Z &lt; -2</li>
-<li>Exit when Z-score returns to 0</li>
-<li>Stop-loss if Z exceeds ±3 or after 5 days (max holding period)</li>
+<li><strong>Enter</strong> when Z &gt; 2 or Z &lt; -2</li>
+<li><strong>Exit</strong> when Z returns to 0</li>
+<li><strong>Stop-loss</strong> if Z exceeds ±3 or trade exceeds 5 days</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="trading-plan" class="level1">
-<h1>Trading Plan</h1>
-<section id="entry-signal" class="level2">
-<h2 class="anchored" data-anchor-id="entry-signal">Entry Signal</h2>
+<section id="trading-plan" class="level2">
+<h2 class="anchored" data-anchor-id="trading-plan">🧠 Trading Plan</h2>
+<section id="entry-signal" class="level3">
+<h3 class="anchored" data-anchor-id="entry-signal">Entry Signal</h3>
 <ul>
 <li>Compute the <strong>Z-score</strong> of the log-price spread between KO and PEP.</li>
-<li>If <code>Z &gt; 2</code>, short KO and long PEP.</li>
-<li>If <code>Z &lt; -2</code>, long KO and short PEP.</li>
+<li>If <code>Z &gt; 2</code>: Short KO, Long PEP</li>
+<li>If <code>Z &lt; -2</code>: Long KO, Short PEP</li>
 </ul>
 </section>
-<section id="exit-signal" class="level2">
-<h2 class="anchored" data-anchor-id="exit-signal">Exit Signal</h2>
+<section id="exit-signal" class="level3">
+<h3 class="anchored" data-anchor-id="exit-signal">Exit Signal</h3>
 <ul>
-<li>Exit the trade when Z-score crosses back to <strong>0</strong>.</li>
-<li>OR exit if a <strong>stop loss</strong> is triggered at <code>Z &gt; ±3</code>.</li>
-<li>Max hold time: <strong>5 trading days</strong></li>
+<li>Close when Z-score crosses back to 0</li>
+<li>Stop-loss: if Z exceeds ±3</li>
+<li>Max hold time: 5 trading days</li>
 </ul>
 </section>
-<section id="position-sizing" class="level2">
-<h2 class="anchored" data-anchor-id="position-sizing">Position Sizing</h2>
+<section id="position-sizing" class="level3">
+<h3 class="anchored" data-anchor-id="position-sizing">Position Sizing</h3>
 <ul>
-<li><strong>Dollar neutral</strong>: invest equal dollar amounts on both sides.</li>
+<li><strong>Dollar neutral</strong>: equal amount invested long and short</li>
 </ul>
 <hr>
 </section>
-<section id="sample-trade" class="level2">
-<h2 class="anchored" data-anchor-id="sample-trade">Sample Trade</h2>
+</section>
+<section id="sample-trade-walkthrough" class="level2">
+<h2 class="anchored" data-anchor-id="sample-trade-walkthrough">🧪 Sample Trade Walkthrough</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -220,14 +224,143 @@ ul.task-list li input[type="checkbox"] {
 <td>Return</td>
 <td>-1.94%</td>
 <td>+0.90%</td>
-<td>Net: <strong>+1.2%</strong></td>
+<td><strong>Net: +1.2%</strong></td>
 </tr>
 </tbody>
 </table>
 <hr>
-
-
 </section>
+<section id="blotter-sample" class="level2">
+<h2 class="anchored" data-anchor-id="blotter-sample">📁 Blotter Sample</h2>
+<p>A blotter is a trade log that records individual trades, quantities, prices, and timestamps.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Timestamp</th>
+<th>Symbol</th>
+<th>Action</th>
+<th>Quantity</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-03-08</td>
+<td>KO</td>
+<td>SELL</td>
+<td>100</td>
+<td>62.00</td>
+</tr>
+<tr class="even">
+<td>2025-03-08</td>
+<td>PEP</td>
+<td>BUY</td>
+<td>100</td>
+<td>167.00</td>
+</tr>
+<tr class="odd">
+<td>2025-03-12</td>
+<td>KO</td>
+<td>BUY</td>
+<td>100</td>
+<td>60.80</td>
+</tr>
+<tr class="even">
+<td>2025-03-12</td>
+<td>PEP</td>
+<td>SELL</td>
+<td>100</td>
+<td>168.50</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="ledger-sample" class="level2">
+<h2 class="anchored" data-anchor-id="ledger-sample">💼 Ledger Sample</h2>
+<p>The ledger shows position value, cash, and total portfolio value over time.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Cash</th>
+<th>Position</th>
+<th>NAV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-03-08</td>
+<td>-22900</td>
+<td>0</td>
+<td>-22900</td>
+</tr>
+<tr class="even">
+<td>2025-03-09</td>
+<td>-22900</td>
+<td>0</td>
+<td>-22900</td>
+</tr>
+<tr class="odd">
+<td>2025-03-12</td>
+<td>23180</td>
+<td>0</td>
+<td>23180</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="performance-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="performance-metrics">📊 Performance Metrics</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Annualized Return (Geo Mean)</td>
+<td>82.1%</td>
+</tr>
+<tr class="even">
+<td>Annualized Volatility</td>
+<td>41.3%</td>
+</tr>
+<tr class="odd">
+<td>Sharpe Ratio</td>
+<td>1.56</td>
+</tr>
+<tr class="even">
+<td>Alpha (vs SPY)</td>
+<td>12.3%</td>
+</tr>
+<tr class="odd">
+<td>Beta (vs SPY)</td>
+<td>-0.24</td>
+</tr>
+<tr class="even">
+<td>Avg Return per Trade</td>
+<td>+0.91%</td>
+</tr>
+<tr class="odd">
+<td>Trades per Year (Estimated)</td>
+<td>144</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="interactive-nav-chart" class="level1">
+<h1>📈 Interactive NAV Chart</h1>
+<p>import { FileAttachment } from “<span class="citation" data-cites="observablehq/stdlib">@observablehq/stdlib</span>” import { Plot } from “<span class="citation" data-cites="observablehq/plot">@observablehq/plot</span>”</p>
+<p>const data = await FileAttachment(“ledger.csv”).csv({ typed: true })</p>
+<p>Plot.plot({ marks: [ Plot.line(data, { x: “date”, y: “mkt_value”, stroke: “green” }), Plot.ruleY([0]) ], x: { label: “Date”, type: “time” }, y: { label: “Net Asset Value (NAV)” }, width: 700, height: 400, marginLeft: 60 })</p>
+
+
 </section>
 
 </main> <!-- /main -->
