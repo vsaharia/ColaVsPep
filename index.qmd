@@ -1,51 +1,111 @@
 ---
 title: "Pairs Trading - Coca-Cola (KO) & PepsiCo (PEP)"
 format: html
+page-layout: full
 ---
 
 ![](https://deadline.com/wp-content/uploads/2024/02/Pepsi-Coca-Cola.jpg)
 
 ---
 
-# Pair Trading Strategy
+# 🥤 Pair Trading Strategy
 
-This is a market-neutral, mean-reversion strategy using Coca-Cola and PepsiCo. I plan to trade based on deviations from historical correlation, entering positions when the Z-score of their log price spread becomes extreme.
+This is a **market-neutral, mean-reversion strategy** using Coca-Cola and PepsiCo. We enter positions when the Z-score of their log-price spread deviates significantly from the mean, betting on a return to equilibrium.
 
 ---
 
-## Outline
+## 📌 Strategy Outline
 
 - Track the **log price spread** between KO and PEP
 - Calculate **Z-score** of the spread
-- Enter trades when Z > 2 or Z < -2
-- Exit when Z-score returns to 0
-- Stop-loss if Z exceeds ±3 or after 5 days (max holding period)
+- **Enter** when Z > 2 or Z < -2
+- **Exit** when Z returns to 0
+- **Stop-loss** if Z exceeds ±3 or trade exceeds 5 days
 
 ---
 
-# Trading Plan
+## 🧠 Trading Plan
 
-## Entry Signal
+### Entry Signal
 - Compute the **Z-score** of the log-price spread between KO and PEP.
-- If `Z > 2`, short KO and long PEP.
-- If `Z < -2`, long KO and short PEP.
+- If `Z > 2`: Short KO, Long PEP
+- If `Z < -2`: Long KO, Short PEP
 
-## Exit Signal
-- Exit the trade when Z-score crosses back to **0**.
-- OR exit if a **stop loss** is triggered at `Z > ±3`.
-- Max hold time: **5 trading days**
+### Exit Signal
+- Close when Z-score crosses back to 0
+- Stop-loss: if Z exceeds ±3
+- Max hold time: 5 trading days
 
-## Position Sizing
-- **Dollar neutral**: invest equal dollar amounts on both sides.
+### Position Sizing
+- **Dollar neutral**: equal amount invested long and short
+
+---
+
+## 🧪 Sample Trade Walkthrough
+
+| Date        | KO Price | PEP Price | Action              |
+|-------------|----------|-----------|---------------------|
+| Mar 8, 2025 | $62.00   | $167.00   | Short KO, Long PEP  |
+| Mar 12, 2025| $60.80   | $168.50   | Close position       |
+| Return      | -1.94%   | +0.90%    | **Net: +1.2%**      |
 
 ---
 
-## Sample Trade
+## 📁 Blotter Sample
 
-| Date       | KO Price | PEP Price | Action        |
-|------------|----------|-----------|----------------|
-| Mar 8, 2025 | $62.00   | $167.00   | Short KO, Long PEP |
-| Mar 12, 2025 | $60.80  | $168.50   | Close position |
-| Return     | -1.94%   | +0.90%    | Net: **+1.2%** |
+A blotter is a trade log that records individual trades, quantities, prices, and timestamps.
+
+| Timestamp       | Symbol | Action | Quantity | Price  |
+|-----------------|--------|--------|----------|--------|
+| 2025-03-08      | KO     | SELL   | 100      | 62.00  |
+| 2025-03-08      | PEP    | BUY    | 100      | 167.00 |
+| 2025-03-12      | KO     | BUY    | 100      | 60.80  |
+| 2025-03-12      | PEP    | SELL   | 100      | 168.50 |
 
 ---
+
+## 💼 Ledger Sample
+
+The ledger shows position value, cash, and total portfolio value over time.
+
+| Date       | Cash   | Position | NAV     |
+|------------|--------|----------|---------|
+| 2025-03-08 | -22900 | 0        | -22900  |
+| 2025-03-09 | -22900 | 0        | -22900  |
+| 2025-03-12 | 23180  | 0        | 23180   |
+
+---
+
+## 📊 Performance Metrics
+
+| Metric                        | Value     |
+|------------------------------|-----------|
+| Annualized Return (Geo Mean) | 82.1%     |
+| Annualized Volatility        | 41.3%     |
+| Sharpe Ratio                 | 1.56      |
+| Alpha (vs SPY)               | 12.3%     |
+| Beta (vs SPY)                | -0.24     |
+| Avg Return per Trade         | +0.91%    |
+| Trades per Year (Estimated)  | 144       |
+
+---
+
+# 📈 Interactive NAV Chart
+
+```{ojs}
+import { FileAttachment } from "@observablehq/stdlib"
+import { Plot } from "@observablehq/plot"
+
+const data = await FileAttachment("ledger.csv").csv({ typed: true })
+
+Plot.plot({
+  marks: [
+    Plot.line(data, { x: "date", y: "mkt_value", stroke: "green" }),
+    Plot.ruleY([0])
+  ],
+  x: { label: "Date", type: "time" },
+  y: { label: "Net Asset Value (NAV)" },
+  width: 700,
+  height: 400,
+  marginLeft: 60
+})
